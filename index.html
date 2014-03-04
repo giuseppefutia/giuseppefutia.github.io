@@ -102,10 +102,10 @@ var arcs = svg.selectAll("g.slice")
           .duration(3000)
           .attrTween("d", tweenPie)
           .transition()
-          .ease("elastic")
-          .delay(function(d,i){return 2000 + i*50;})
-          .duration(750)
-          .attrTween("d", tweenDonut);
+          //.ease("elastic")
+          //.delay(function(d,i){return 2000 + i*50;})
+          //.duration(750)
+          //.attrTween("d", tweenDonut);
 
     arcs.append("text")
        .attr("font-family", "PT Serif")
