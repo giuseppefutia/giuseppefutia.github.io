@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html class="ocks-org do-not-copy">
 <meta charset="utf-8">
-<title>Giuseppe Futia Website</title>
+<title>Giuseppe Futia's Website</title>
 <style>
 
 @import url(css/style.css);
@@ -32,7 +32,7 @@
 <body>
 
 <header>
-  <aside>Update Mar 4, 2014</aside>
+  <aside>Updated Mar 4, 2014</aside>
   <a href="http://it.linkedin.com/in/giuseppefutia" rel="author">Giuseppe Futia</a>
 </header>
 
@@ -43,7 +43,7 @@
 <p id="chart">
 
 <footer>
-  <aside>Update Mar 4, 2014</aside>
+  <aside>Updated Mar 4, 2014</aside>
   <a href="http://bost.ocks.org/mike/" rel="author"> Website style by Mike Bostock</a>
 </footer>
 
@@ -58,8 +58,6 @@ var margin = {top: 1, right: 1, bottom: 6, left: 1},
     innerRadius = outerRadius * .6;
 
     d3.select("#chart").attr("height", height);
-
-    console.info(color);
 
 
 var skills = [
@@ -99,16 +97,16 @@ var arcs = svg.selectAll("g.slice")
         .attr("d", arc)
         .transition()
           .ease("bounce")
-          .duration(3000)
+          .duration(2500)
           .attrTween("d", tweenPie)
 
     arcs.append("text")
        .attr("font-family", "PT Serif")
        .attr("font-size", "medium")
        .transition()
-       .delay(3200)
+       .delay(2700)
        .ease("elastic")
-          .duration(3000)
+          .duration(2700)
        .attr("fill", "#333")                  
        .attr("transform", function(d) {                    
             var c = arc.centroid(d),
@@ -120,7 +118,6 @@ var arcs = svg.selectAll("g.slice")
                                   (y/h * 140) +  ")";   
             })
         .attr("text-anchor", function(d) {
-        // are we past the center?
             return (d.endAngle + d.startAngle)/2 > Math.PI ?
             "end" : "start";
         })                       
@@ -129,13 +126,13 @@ var arcs = svg.selectAll("g.slice")
 function tweenPie(b){
     b.innerRadius = 0;
     var i = d3.interpolate({startAngle:0, endAngle:0}, b);
-    return function(t){return arc(i(t));};
+    return function(t) { return arc(i(t)); };
   }
 
-  function tweenDonut(b){
+function tweenDonut(b){
     b.innerRadius = 90 * .6;
     var i = d3.interpolate({innerRadius:0},b);
-    return function(t){return arc(i(t));};
+    return function(t) { return arc(i(t)); };
   } 
 
 </script>
