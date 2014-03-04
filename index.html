@@ -101,15 +101,14 @@ var arcs = svg.selectAll("g.slice")
           .ease("bounce")
           .duration(3000)
           .attrTween("d", tweenPie)
-          .transition()
-          //.ease("elastic")
-          //.delay(function(d,i){return 2000 + i*50;})
-          //.duration(750)
-          //.attrTween("d", tweenDonut);
 
     arcs.append("text")
        .attr("font-family", "PT Serif")
        .attr("font-size", "medium")
+       .transition()
+       .delay(3200)
+       .ease("elastic")
+          .duration(3000)
        .attr("fill", "#333")                  
        .attr("transform", function(d) {                    
             var c = arc.centroid(d),
