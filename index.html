@@ -7,10 +7,6 @@
 
 @import url(css/style.css);
 
-#chart {
-  height: 500px;
-}
-
 .node rect {
   cursor: move;
   fill-opacity: .9;
@@ -36,17 +32,111 @@
 <body>
 
 <header>
-  <aside>Feb 24, 2014</aside>
+  <aside>Update Mar 4, 2014</aside>
   <a href="http://it.linkedin.com/in/giuseppefutia" rel="author">Giuseppe Futia</a>
 </header>
 
-<h1>Giuseppe Futia Website</h1>
+<h1>Giuseppe Futia's Website</h1>
 
 <p>Giuseppe Futia is Communication Manager and Research Fellow at the <a href="http://nexa.polito.it/">Nexa Center for Internet & Society</a> at <a href="http://www.polito.it/">Politecnico di Torino</a> (<a href="http://www.dauin.polito.it/">DAUIN</a>) since February 2011. He holds a Master Degree in Media Engineering from Politecnico di Torino. Since 2008, he collaborates with the Italian newspaper “<a href="http://www.lastampa.it/">La Stampa</a>”, especially on Internet & Society topics. Giuseppe holds data analysis and data visualization skills, useful  to both sustain the outreach of some of the Nexa projects, and to support research in the field of Open Data. </p>
 
+<p id="chart">
+
 <footer>
-  <aside>Feb 24, 2014</aside>
-  <a href="http://bost.ocks.org/mike/" rel="author"> Web site style by Mike Bostock</a>
+  <aside>Update Mar 4, 2014</aside>
+  <a href="http://bost.ocks.org/mike/" rel="author"> Website style by Mike Bostock</a>
 </footer>
 
 <script src="http://d3js.org/d3.v2.min.js?2.9.1"></script>
+<script>
+
+var margin = {top: 1, right: 1, bottom: 6, left: 1},
+    width = 960 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+    color = d3.scale.category20c();
+    outerRadius = 120;
+    innerRadius = outerRadius * .6;
+
+    d3.select("#chart").attr("height", height);
+
+    console.info(color);
+
+
+var skills = [
+              { key: "Press Office", "value": 70 },
+              { key: "Social Media", "value": 50 },
+              { key: "Linked Data", "value": 20 },
+              { key: "Data Visualization", "value": 30 },
+              { key: "Content Management", "value": 60 },
+              { key: "Cloud Computing", "value": 10 },
+              { key: "Journalism", "value" : 60 }
+             ];
+
+var arc = d3.svg.arc()
+          .outerRadius(outerRadius)
+          .innerRadius(innerRadius);
+
+var pie = d3.layout.pie()
+           .sort(null)
+           .value(function(d) {
+            return d.value; }
+          );
+
+var svg = d3.select("#chart").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    
+    
+var arcs = svg.selectAll("g.slice")
+    .data(pie(skills))
+    .enter()
+        .append("g")
+        .attr("transform", "translate(" + (width/2 - outerRadius) + "," + (outerRadius+50)  + ")")
+        .attr("class", "slice");
+
+    arcs.append("path")    
+        .attr("fill", function(d, i) { return color(i); } )
+        .attr("d", arc)
+        .transition()
+          .ease("bounce")
+          .duration(3000)
+          .attrTween("d", tweenPie)
+          .transition()
+          .ease("elastic")
+          .delay(function(d,i){return 2000 + i*50;})
+          .duration(750)
+          .attrTween("d", tweenDonut);
+
+    arcs.append("text")
+       .attr("font-family", "PT Serif")
+       .attr("font-size", "medium")
+       .attr("fill", "#333")                  
+       .attr("transform", function(d) {                    
+            var c = arc.centroid(d),
+            x = c[0],
+            y = c[1],
+            // pythagorean theorem for hypotenuse
+            h = Math.sqrt(x*x + y*y);
+            return "translate(" + (x/h * 140) +  ',' +
+                                  (y/h * 140) +  ")";   
+            })
+        .attr("text-anchor", function(d) {
+        // are we past the center?
+            return (d.endAngle + d.startAngle)/2 > Math.PI ?
+            "end" : "start";
+        })                       
+        .text(function(d, i) { return skills[i].key; });
+
+function tweenPie(b){
+    b.innerRadius = 0;
+    var i = d3.interpolate({startAngle:0, endAngle:0}, b);
+    return function(t){return arc(i(t));};
+  }
+
+  function tweenDonut(b){
+    b.innerRadius = 90 * .6;
+    var i = d3.interpolate({innerRadius:0},b);
+    return function(t){return arc(i(t));};
+  } 
+
+</script>
