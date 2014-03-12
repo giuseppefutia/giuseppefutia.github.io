@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html class="ocks-org do-not-copy">
+<meta charset="utf-8">
+<title>Giuseppe Futia's Website</title>
+<style>
+
+@import url(css/style.css);
+
+.node rect {
+  cursor: move;
+  fill-opacity: .9;
+  shape-rendering: crispEdges;
+}
+
+.node text {
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.link {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .2;
+}
+
+.link:hover {
+  stroke-opacity: .5;
+}
+
+</style>
+<body>
+
+<header>
+  <aside>Updated Mar 4, 2014</aside>
+  <a href="http://it.linkedin.com/in/giuseppefutia" rel="author">Giuseppe Futia</a>
+</header>
+
+<p id="chart">
+
+<footer>
+  <aside>Updated Mar 4, 2014</aside>
+  <a href="http://bost.ocks.org/mike/" rel="author"> Website style by Mike Bostock</a>
+</footer>
+
+<script src="http://d3js.org/d3.v2.min.js?2.9.1"></script>
+<script>
+/*
+Link utili: 
+- http://vallandingham.me/gates_bubbles/, view-source:http://vallandingham.me/gates_bubbles/, http://vallandingham.me/gates_bubbles/coffee/vis.coffee
+- http://www.nytimes.com/interactive/2012/02/13/us/politics/2013-budget-proposal-graphic.html?_r=0, view-source:http://www.nytimes.com/interactive/2012/02/13/us/politics/2013-budget-proposal-graphic.html?_r=0
+*/
+
+var vis, nodes, force, circles;
+
+var margin = {top: 1, right: 1, bottom: 6, left: 1},
+    width = 960 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+    color = d3.scale.category20c();
+    outerRadius = 120;
+    innerRadius = outerRadius * .6;
+
+    d3.select("#chart").attr("height", height);
+
+var center = {x: width/2, y: height/2}
+
+var data = [
+    {"id": "Creative Commons", "value": 50, "topic": "topic1"},
+    {"id": "3D Animation", "value": 30, "topic": "topic2"}
+    {"id": "Open Data", "value": 20, "topic": "topic3"}
+    ];
+
+var areas = {
+    "topic1": {x: width / 3, y: height / 2},
+    "topic2": {x: width / 2, y: height / 2},
+    "topic3": {x: 2 * width / 3, y: height / 2}
+    };
+
+var max_amount = d3.max(data, function (d) {return d.value};
+var radius_scale = d3.scale.pow().exponent(0.5).domain([0, max_amount]).range([2, 85])
+
+createNodes();
+createVis();
+
+var createNodes = function () {
+    nodes = new Array();
+    data.forEach(function (d) {
+        var node = {
+             "id": d.id,
+             "value": d.value,
+             "group": d.topic,
+             x: Math.random() * 900,
+             y: Math.random() * 800
+        };
+        nodes.push(node);
+    });
+    // TODO: check if sort on nodes is necessary
+}
+
+var vis = d3.select("#chart").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+
+
+        
+</script>
