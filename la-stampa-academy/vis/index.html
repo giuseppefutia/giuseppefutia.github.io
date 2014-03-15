@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html class="ocks-org do-not-copy">
+<meta charset="utf-8">
+<title>La Stampa Academy Project</title>
+<style>
+
+@import url(css/style.css);
+
+.node rect {
+  cursor: move;
+  fill-opacity: .9;
+  shape-rendering: crispEdges;
+}
+
+.node text {
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.link {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .2;
+}
+
+.link:hover {
+  stroke-opacity: .5;
+}
+
+</style>
+<body>
+
+<header>
+  <aside>Updated Mar 18, 2014</aside>
+  <a href="http://it.linkedin.com/in/giuseppefutia" rel="author">Giuseppe Futia</a>
+</header>
+
+<h1>La Stampa Academy</h1>
+
+<p>Descrizione del progetto</p>
+
+<p id="chart">
+
+<footer>
+  <aside>Updated Mar 18, 2014</aside>
+  <a href="http://bost.ocks.org/mike/" rel="author"> Website style by Mike Bostock</a>
+</footer>
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://d3js.org/queue.v1.min.js" charset="utf-8"></script>
+<script>
+
+var margin = {top: 1, right: 1, bottom: 6, left: 1},
+    width = 1024 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+    clicked = false;
+    //color = d3.scale.category20c();
+    //outerRadius = 120;
+    //innerRadius = outerRadius * .6;
+
+//d3.select("#chart").attr("height", height);
+
+var svgRegionMap = {
+  "g_reg20": "Sardegna",
+  "g_reg10": "Basilicata"
+}
+
+queue()
+    .defer(d3.xml, "/italia_regioni.svg")
+    .defer(d3.json, "/data/tasso-disoccupazione-regione.json")
+    .await(ready);
+
+function ready (error, regions, unemplRegions) {
+    document.getElementById("chart").appendChild(regions.documentElement);
+    var geoMap = d3.select("#global");
+    geoMap.attr("transform", "scale(0.7)");
+
+    var ur = arrayForD3(unemplRegions);
+    visualizeMap(geoMap, ur);
+    
+}
+
+function arrayForD3 (json) {
+    // Model a = [{"key": ..., "value": ...}]
+
+    var arrayResult = new Array();
+    for (var i = 0; i <json.length; i++) {
+        var region = json[i]["cell"][0]["$t"];
+        var value = json[i]["cell"][1]["$t"];
+        var element = {"key": region, "value": value}
+        arrayResult.push(element);
+    }
+    return arrayResult;
+}
+
+function visualizeMap (geoMap, data) {
+    var scale = d3.scale.linear([0, 60]).range([0 , 1]);
+    geoMap.selectAll("g")
+         .style("fill", "orange")
+    
+    for (var id in svgRegionMap) {
+      d3.select("#"+id)
+          .style("opacity", function () {
+              return 0.5;
+          })
+          .on("mousemove", createDonuts)
+          //.on("mouseout", removeDonuts)
+          //.on("click", toggleClickStatus)
+    }    
+
+}
+
+function createDonuts () {
+  console.info(this.id); 
+}
+
+function updateMap() {
+
+}
+
+function createAreaCircles() {
+  //Codice ripartizione Regioni e Province
+}
+
+
+
+
+
+
+
+/*
+var skills = [
+              { "key": "Press Office", "value": 70 },
+              { "key": "Social Media", "value": 50 },
+              { "key": "Linked Data", "value": 20 },
+              { "key": "Data Visualization", "value": 30 },
+              { "key": "Content Management", "value": 60 },
+              { "key": "Cloud Computing", "value": 10 },
+              { "key": "Journalism", "value" : 60 }
+             ];
+
+var arc = d3.svg.arc()
+          .outerRadius(outerRadius)
+          .innerRadius(innerRadius);
+
+var pie = d3.layout.pie()
+           .sort(null)
+           .value(function(d) {
+            return d.value; }
+          );
+
+var svg = d3.select("#chart").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    
+    
+var arcs = svg.selectAll("g.slice")
+    .data(pie(skills))
+    .enter()
+        .append("g")
+        .attr("transform", "translate(" + (width/2 - outerRadius) + "," + (outerRadius+50)  + ")")
+        .attr("class", "slice");
+
+    arcs.append("path")    
+        .attr("fill", function(d, i) { return color(i); } )
+        .attr("d", arc)
+        .transition()
+          .ease("bounce")
+          .duration(2500)
+          .attrTween("d", tweenPie)
+
+    arcs.append("text")
+       .attr("font-family", "PT Serif")
+       .attr("font-size", "medium")
+       .transition()
+       .delay(2700)
+       .ease("elastic")
+          .duration(2700)
+       .attr("fill", "#333")                  
+       .attr("transform", function(d) {                    
+            var c = arc.centroid(d),
+            x = c[0],
+            y = c[1],
+            // pythagorean theorem for hypotenuse
+            h = Math.sqrt(x*x + y*y);
+            return "translate(" + (x/h * 140) +  ',' +
+                                  (y/h * 140) +  ")";   
+            })
+        .attr("text-anchor", function(d) {
+            return (d.endAngle + d.startAngle)/2 > Math.PI ?
+            "end" : "start";
+        })                       
+        .text(function(d, i) { return skills[i].key; });
+
+function tweenPie(b){
+    b.innerRadius = 0;
+    var i = d3.interpolate({startAngle:0, endAngle:0}, b);
+    return function(t) { return arc(i(t)); };
+  }
+
+function tweenDonut(b){
+    b.innerRadius = 90 * .6;
+    var i = d3.interpolate({innerRadius:0},b);
+    return function(t) { return arc(i(t)); };
+  }
+
+  */ 
+
+</script>
