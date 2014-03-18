@@ -1,11 +1,11 @@
 var office = require('office');
 var fs = require('fs');
 
-office.parse('../data/tasso-disoccupazione-regione.xls', function(err, data) {
+office.parse('./tasso-disoccupazione-regione.xls', function(err, data) {
     var json = data.sheets.sheet.rows.row;
     console.log(json);
 
-    var outputFilename = '../data/tasso-disoccupazione-regione.json';
+    var outputFilename = './tasso-disoccupazione-regione.json';
     fs.writeFile(outputFilename, JSON.stringify(json, null, 4), function(err) {
         if(err) {
             console.log(err);
