@@ -102,7 +102,7 @@ div.tooltip {
 <script src="js/libs/d3.csv.min.js"></script>
 <script src="js/libs/d3.layout.min.js"></script>
 <script src="js/libs/d3.geom.min.js"></script>
-<script src="coffee/vis.js"></script>!-->
+<script src="coffee/vis.js"></script>-->
 
 <!-- To work on github pages -->
 
@@ -150,7 +150,9 @@ var svgRegionMap = {
   "g_reg14": "Molise",
   "g_reg8": "Emilia-Romagna",
   "g_reg7": "Liguria",
-  "g_reg11": "Marche"
+  "g_reg11": "Marche",
+  "g_reg4": "Trentino-Alto Adige",
+  "g_reg2": "Valle d'Aosta"
 
 }
 
@@ -172,15 +174,27 @@ var regionSvgMap = {
   "Molise": "g_reg14",
   "Liguria": "g_reg7",
   "Emilia-Romagna": "g_reg8",
-  "Marche": "g_reg11"
+  "Marche": "g_reg11",
+  "Trentino-Alto Adige": "g_reg4",
+  "Valle d'Aosta": "g_reg2"
 }
 
+
+// To work on GitHub Pages
 queue()
     .defer(d3.xml, "http://giuseppefutia.github.io/la-stampa-academy/vis//italia_regioni.svg")
     .defer(d3.json, "http://giuseppefutia.github.io/la-stampa-academy/vis//data/tasso-disoccupazione-regione.json")
     .defer(d3.json, "http://giuseppefutia.github.io/la-stampa-academy/vis//data/tasso-disoccupazione-regione-M-F.json")
     .defer(d3.json, "http://giuseppefutia.github.io/la-stampa-academy/vis//data/abbandono-neet-regione-M-F.json")
-    .await(ready);
+    .await(ready); 
+
+//To work locally
+/*queue()
+    .defer(d3.xml, "/italia_regioni.svg")
+    .defer(d3.json, "/data/tasso-disoccupazione-regione.json")
+    .defer(d3.json, "/data/tasso-disoccupazione-regione-M-F.json")
+    .defer(d3.json, "/data/abbandono-neet-regione-M-F.json")
+    .await(ready);*/
 
 function ready (error, regions, unemplRegions, unemplRegionsMF, abandonNeetRegionsMF) {
     document.getElementById("map").appendChild(regions.documentElement);
