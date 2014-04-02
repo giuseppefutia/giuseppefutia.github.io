@@ -25,6 +25,12 @@ html {
   font-family: "PT Sans", sans-serif;
 }
 
+hr {
+  width: 750px;
+  position: absolute;
+  height: 0.5px;
+}
+
 .ocks-org h1,
 .ocks-org h2,
 .ocks-org h3,
@@ -79,7 +85,7 @@ footer {
 }
 
 footer {
-  margin-top: 0em;
+  margin-top: 2em;
 }
 
 h1 ~ aside {
