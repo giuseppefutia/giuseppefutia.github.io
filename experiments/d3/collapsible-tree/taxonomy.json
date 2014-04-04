@@ -1,0 +1,53 @@
+{
+ "name": "Nexa Fellows",
+ "children": [
+  {
+   "name": "Intellectual property law",
+   "children":  [
+     {
+      "name": "Copyright law",
+      "children": [
+      {
+        "name": "Authors' right (page)", "size":1
+      },
+      {
+        "name": "Licensing",
+        "children": [
+          {
+            "namme": "Copyleft", "size": 1
+          }
+        ]
+      }
+      ]
+     }
+   ]
+  },
+  {
+    "name": "Open_content", "size": 3938
+  },
+  {
+    "name": "Privacy", "size": 3938
+  },
+  {
+    "name": "Information", "size": 3938
+  },
+  {
+    "name": "Computer networking", "size": 3938
+  }, 
+ {
+    "name": "Cyberspace", "size": 3938
+  }, 
+ {
+    "name": "Law of obbligation", "size": 3938
+  }, 
+ {
+    "name": "Indentity", "size": 3938
+  }, 
+ {
+    "name": "Human Rights", "size": 3938
+  }, 
+ {
+    "name": "Tort Law", "size": 3938
+  }    
+ ]
+}
