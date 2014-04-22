@@ -30,7 +30,7 @@
 
 #barchart {
   position: absolute;
-  top: 150px;
+  top: 400px;
   left: 600px;
   height: 800px;
 }
@@ -62,19 +62,57 @@ div.tooltip {
 
 <header>
   <aside>Updated Mar 18, 2014</aside>
-  <a href="http://it.linkedin.com/in/giuseppefutia" rel="author">Giuseppe Futia</a>
+  <a href="http://it.linkedin.com/in/giuseppefutia" rel="author" target="_blank">Giuseppe Futia</a>
 </header>
 
 <h1>La Stampa Academy</h1>
+<p>La disoccupazione giovanile è uno dei problemi più urgenti e complessi da affrontare nel nostro paese. Per comprendere pienamente il fenomeno, tuttavia, è possibile tenere conto di diversi indicatori che ad esso si relazionano. Ad esempio:
+<ul>
+<li>  
+in una regione in cui <strong>il tasso di abbandono degli studi da parte dei giovani è molto forte, si riscontra anche un livello di disoccupazione giovanile molto elevato</strong>?</li>
+
+<li><strong>l'investimento in istruzione è una strada intrapresa dalle regioni italiane per poter abbattere il livello di disoccupazione giovanile</strong>?</li>
+
+<li><strong>la disoccupazione nasconde spesso un problema più grave</strong>, quello cosiddetti "<a href="http://it.wikipedia.org/wiki/NEET" target="_blank">NEET</a>" (Not engaged in Education, Employment or Training). Esiste una correlazione tra questi due fenomeni?</li>
+</ul>
+
+</p> 
+
+<p>Per poter rispondere in maniera efficace a tali questioni, occorrerebbe analizzare i diversi indicatori lungo una seria storica. Questo lavoro, tuttavia, intende fornire una prima fotografia della situazione, per fornire suggerimenti che possano aiutare ad indagare con analisi ulteriori le correlazioni tra disoccupazione giovanile, tasso di abbandono degli studi, investimenti in istruzione e NEET.</p>
+
 <header>
-<h2>Qual è la correlazione tra disoccupazione giovanile, tasso di abbandono degli studi, tasso di sfiducia da parte dei giovani, che comprende coloro che non studiano e non lavorano? </h2>
+<h2>Disoccupazione giovanile, tasso di abbandono degli studi, e NEET in Italia</h2>
 </header>
 
+
 <p id="map">
+
+<p id="textMap">
+RIFLESSIONI - TROVARE UN MODO FICO PER VISUALIZZARNE IL TESTO SERENAMENTE. CHE COSA HO SCOPERTO: attr tween text
+</p>
+
+<p>  
+Dataset utilizzati:
+<ul>
+
+<li>
+  <a href="http://noi-italia.istat.it/fileadmin/user_upload/allegati/S16I07T12s0_2013.xls" target="_blank">Mercato del lavoro - Tasso di disoccupazione giovanile (15-24 anni) per sesso e regione, "Noi Italia", Istat, 2012</a>
+</li>
+
+<li>
+  <a href="http://noi-italia.istat.it/fileadmin/user_upload/allegati/S05I04T12s0_2013.xls" target="_blank">Istruzione - Giovani che abbandonano prematuramente gli studi per sesso e regione (18-24 anni), "Noi Italia", Istat, 2012</a>
+</li>
+
+<li>
+  <a href="http://noi-italia.istat.it/fileadmin/user_upload/allegati/S05I07T12p0_2013.xls" target="_blank">Istruzione - Giovani Neet di 15-29 anni per sesso e regione, "Noi Italia", Istat, 2012</a>
+</li>
+
+</ul>
+</p>
 <p id="barchart">
 <div id="container" class="container">
     <header>
-    <h2>Spesa pubblica per consumi finali per l'istruzione e la formazione per regione</h2>
+    <h2>Spesa pubblica per consumi finali per l'istruzione e la formazione per regione (2011)</h2>
     </header>
     <div id="main" role="main">
       <div id="view_selection" class="btn-group">
@@ -82,8 +120,29 @@ div.tooltip {
         <a href="#" id="year" class="btn">Visualizzazione per area geografica</a>
       </div>
       <div id="vis"></div>
+<p>
+RIFLESSIONI
+</p>  
+      Dataset utilizzati:
+<ul>
+
+<li>
+  <a href="http://noi-italia.istat.it/fileadmin/user_upload/allegati/S05I01T02s0_2013_01.xls" target="_blank">Istruzione - Spesa pubblica per l'istruzione e la formazione, "Noi Italia", Istat, 2011</a>
+</li>
     </div>
   </div>
+
+<header>
+  <h2>Nota metodologica</h2>
+</header>
+
+<header>
+  <h2>Tecnologie utilizzate</h2>
+</header>
+
+<header>
+  <h2>Riconoscimenti</h2>
+</header>
 
 <footer>
   <aside>Updated Mar 18, 2014</aside>
@@ -93,7 +152,7 @@ div.tooltip {
 <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
 
 <!-- To work locally --> 
-<!--<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="http://d3js.org/queue.v1.min.js" charset="utf-8"></script>
 <script defer src="js/plugins.js"></script>
 <script defer src="js/script.js"></script>
@@ -102,11 +161,11 @@ div.tooltip {
 <script src="js/libs/d3.csv.min.js"></script>
 <script src="js/libs/d3.layout.min.js"></script>
 <script src="js/libs/d3.geom.min.js"></script>
-<script src="coffee/vis.js"></script>-->
+<script src="coffee/vis.js"></script>
 
 <!-- To work on github pages -->
 
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<!--<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="http://d3js.org/queue.v1.min.js" charset="utf-8"></script>
 <script defer src="http://giuseppefutia.github.io/la-stampa-academy/vis/js/plugins.js"></script>
 <script defer src="http://giuseppefutia.github.io/la-stampa-academy/vis/js/script.js"></script>
@@ -115,7 +174,7 @@ div.tooltip {
 <script src="http://giuseppefutia.github.io/la-stampa-academy/vis/js/libs/d3.csv.min.js"></script>
 <script src="http://giuseppefutia.github.io/la-stampa-academy/vis/js/libs/d3.layout.min.js"></script>
 <script src="http://giuseppefutia.github.io/la-stampa-academy/vis/js/libs/d3.geom.min.js"></script>
-<script src="http://giuseppefutia.github.io/la-stampa-academy/vis/coffee/vis.js"></script>
+<script src="http://giuseppefutia.github.io/la-stampa-academy/vis/coffee/vis.js"></script>-->
 
 <script>
 
@@ -181,26 +240,32 @@ var regionSvgMap = {
 
 
 // To work on GitHub Pages
-queue()
+/*queue()
     .defer(d3.xml, "http://giuseppefutia.github.io/la-stampa-academy/vis//italia_regioni.svg")
     .defer(d3.json, "http://giuseppefutia.github.io/la-stampa-academy/vis//data/tasso-disoccupazione-regione.json")
     .defer(d3.json, "http://giuseppefutia.github.io/la-stampa-academy/vis//data/tasso-disoccupazione-regione-M-F.json")
     .defer(d3.json, "http://giuseppefutia.github.io/la-stampa-academy/vis//data/abbandono-neet-regione-M-F.json")
-    .await(ready); 
+    .await(ready); */
 
 //To work locally
-/*queue()
+queue()
     .defer(d3.xml, "/italia_regioni.svg")
     .defer(d3.json, "/data/tasso-disoccupazione-regione.json")
     .defer(d3.json, "/data/tasso-disoccupazione-regione-M-F.json")
     .defer(d3.json, "/data/abbandono-neet-regione-M-F.json")
-    .await(ready);*/
+    .await(ready);
 
 function ready (error, regions, unemplRegions, unemplRegionsMF, abandonNeetRegionsMF) {
     document.getElementById("map").appendChild(regions.documentElement);
-    var svgMap = d3.select("#map").select("svg").attr("width", "600");
-    svgMap.attr("height", "500");
+    var svgMap = d3.select("#map").select("svg")
+                   .attr("width", "600")
+                   .attr("height", "500");
     
+    var svgTextMap = d3.select("#textMap").append("svg")
+                   .attr("width", "600")
+                   .attr("height", "500");
+
+
     var geoMap = d3.select("#global");
     geoMap.attr("transform", "scale(0.7)");
     
@@ -218,7 +283,7 @@ function ready (error, regions, unemplRegions, unemplRegionsMF, abandonNeetRegio
         return false;
     });
     
-    var barchart = d3.select("#barchart").append("svg")
+    var barchart = d3.select("#barchart").append("svg").attr("height", "800")
     generateFirstRegionBars();
     
     tooltip = d3.select("#map").append("div")
@@ -273,6 +338,8 @@ function visualizeMap (geoMap, unemplRegions, unemplRegionsMF, abandonNeetRegion
     geoMap.selectAll("g")
          .style("fill", "orange")
     
+    var regionData = {} 
+
     for (var id in svgRegionMap) {
           var dataObject = {"id": svgRegionMap[id],
                             "unemployment": unemplRegions[svgRegionMap[id]],
@@ -284,8 +351,9 @@ function visualizeMap (geoMap, unemplRegions, unemplRegionsMF, abandonNeetRegion
                             "neet": abandonNeetRegionsMF[svgRegionMap[id]]["neet"],
                             "neetMen": abandonNeetRegionsMF[svgRegionMap[id]]["neetMen"],
                             "neetWomen": abandonNeetRegionsMF[svgRegionMap[id]]["neetWomen"]
-                          };               
-          console.info(dataObject);
+                          };
+          regionData[dataObject["id"]] = dataObject
+
           d3.select("#"+id).datum([dataObject])
              .style("opacity", function (d, i) {
                   return scale(d[0].unemployment);
@@ -311,12 +379,12 @@ function visualizeMap (geoMap, unemplRegions, unemplRegionsMF, abandonNeetRegion
                 mouseClickRegion(d);
 
               })
-    }  
-
+    }
+    extractInterestingData(regionData);  
 }
 
 function generateFirstRegionBars () {
-  var barchart = d3.select("#barchart").select('svg')
+  var barchart = d3.select("#barchart").select('svg').attr("height", "800")
   tooltipBar = d3.select("#barchart").append("div")
         .attr("class", "tooltip hidden");
   
@@ -377,10 +445,10 @@ function generateFirstRegionBars () {
 
     barchart.select("#genderRegionAbandonBar")
         .append("text")   
-        .text("nel 2012 per regione M/F")   
+        .text("nel 2012 per regione M/F (18-24 anni)")   
         .attr("class", "titleText")
         .attr("fill", "#333")
-        .attr("x", 30)
+        .attr("x", -10)
         .attr("y", 215)
   
     barchart.select("#genderRegionAbandonBar")   
@@ -474,7 +542,7 @@ function mouseClickRegion (data) {
     
     var unemplRegionBarChart = d3.select("#barchart")
         .style("position", "absolute")
-        .style("top", "150px")
+        .style("top", "400px")
         .style("left", "600px")
         .select('#genderRegionUnemplBar')
         .attr("width", w)
@@ -491,7 +559,7 @@ function mouseClickRegion (data) {
 
     var abandonRegionBarChart = d3.select("#barchart")
         .style("position", "absolute")
-        .style("top", "150px")
+        .style("top", "400px")
         .style("left", "600px")
         .select('#genderRegionAbandonBar')
         .attr("width", w)
@@ -508,7 +576,7 @@ function mouseClickRegion (data) {
 
     var neetRegionBarChart = d3.select("#barchart")
         .style("position", "absolute")
-        .style("top", "150px")
+        .style("top", "400px")
         .style("left", "600px")
         .select('#genderRegionNeetBar')
         .attr("width", w)
@@ -551,8 +619,36 @@ function moveOutRegion (data) {
     .duration(500)
     .attr("y", function(d) { return h - y(d) - .5; })
     .attr("height", function (d) { return d;});  
+}
 
+function extractInterestingData (dataObject) {
+    console.info("In extractInterestingData");
+    console.info(dataObject);
 
+    var maxUnempl = { "region": "", value: 0 };
+    var minUnempl = { "region": "", value: 100 };
+    var maxUnemplM = { "region": "", value: 0 };
+    var minUnemplM = { "region": "", value: 100 };
+
+    for (var i in dataObject) {
+
+      console.info(dataObject[i]);
+        
+        if (dataObject[i]["unemployment"] > maxUnempl["value"]) {
+            maxUnempl["region"] = dataObject[i]["id"];
+            maxUnempl["value"] = dataObject[i]["unemployment"];
+        }
+
+        if (dataObject[i]["unemplMen"] > maxUnemplM["value"]) {
+            maxUnemplM["region"] = dataObject[i]["id"];
+            maxUnemplM["value"] = dataObject[i]["unemplMen"];
+        }
+
+        if (dataObject)  
+    }
+
+    console.info(maxUnempl);
+    console.info(maxUnemplM);
 }
 
 </script>
