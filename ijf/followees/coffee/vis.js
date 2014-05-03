@@ -30,15 +30,15 @@
         y: this.height / 2
       };
       this.year_centers = {
-        "Nord": {
+        "N": {
           x: this.width / 3,
           y: this.height / 2
         },
-        "Centro": {
+        "C": {
           x: this.width / 2,
           y: this.height / 2
         },
-        "Sud": {
+        "S": {
           x: 2 * this.width / 3,
           y: this.height / 2
         }
@@ -183,9 +183,9 @@
       var years, years_data, years_x,
         _this = this;
       years_x = {
-        "Nord": 160,
-        "Centro": this.width / 2,
-        "Sud": this.width - 160
+        "N": 160,
+        "C": this.width / 2,
+        "S": this.width - 160
       };
       years_data = d3.keys(years_x);
       years = this.vis.selectAll(".years").data(years_data);
