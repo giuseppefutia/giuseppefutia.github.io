@@ -120,14 +120,14 @@ var mapRange = {
 }
 
 var mapProvince = {
-    "1": "Provincia di Torino",
-    "2": "Provincia di Vercelli",
-    "3": "Provincia di Novara",
-    "4": "Provincia di Cuneo",
-    "5": "Provincia di Asti",
-    "6": "Provincia di Alessandria",
-    "96": "Provincia di Biella",
-    "103": "Provincia del Verbano-Cusio-Ossola"
+    "1": "PROVINCIA DI TORINO",
+    "2": "PROVINCIA DI VERCELLI",
+    "3": "PROVINCIA DI NOVARA",
+    "4": "PROVINCIA DI CUNEO",
+    "5": "PROVINCIA DI ASTI",
+    "6": "PROVINCIA DI ALESSANDRIA",
+    "96": "PROVINCIA DI BIELLA",
+    "103": "PROVINCIA DEL VERBANO-CUSIO-OSSOLA"
 };
 
 var svg = d3.select("#map").append("svg")
@@ -176,6 +176,15 @@ function click(d) {
         .attr("opacity", 0);
         
         createMunicipalities(d);
+
+        var textChart = d3.select("#chart").select("svg").append("text")
+                        .attr("font-family", "PT Sans, sans-serif")
+                        .attr("font-size", "20px")
+                        .attr("fill", "grey")
+                        .attr("x", 210)
+                        .attr("y", 250)
+                        .style("text-anchor", "middle")
+                        .text(mapProvince[d.id]);
         
         //gProv.attr("opacity", 0);
 
@@ -202,7 +211,20 @@ function createMunicipalities (d) {
     .attr("d",pathMun)
     .attr("opacity", 0)
     .on("click", clickMun)
-    .on("mouseover", createLowLevelDonut)
+    .on("mouseover", function(data) {
+          createLowLevelDonut(data);
+
+          var textChart1 = d3.select("#chart1").select("svg").append("text")
+                        .attr("font-family", "PT Sans, sans-serif")
+                        .attr("font-size", "20px")
+                        .attr("fill", "grey")
+                        .attr("x", 210)
+                        .attr("y", 250)
+                        .style("text-anchor", "middle")
+                        .text(resultData["feature"][d.id]["municipalities"][data.id]["name"]);
+
+        
+    })
     .on("mouseout", function(){
         document.getElementById("chart1").innerHTML = "";
         document.getElementById("chartb").innerHTML = "";
@@ -321,7 +343,7 @@ function createHighLevelDonut(d) {
     var svg = d3.select("#chart").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
-        
+
     var arcs = svg.selectAll("g.slice")
         .data(pie(data))
         .enter()
