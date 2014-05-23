@@ -1,66 +1,49 @@
-
 <!DOCTYPE html>
-<html class="ocks-org do-not-copy">
 <meta charset="utf-8">
-<title>Hack4Med - OpenEnergyMAP</title>
 <style>
-
-@import url(css/style.css);
 
 #chart{
     position: absolute;
-    top: 200px;
+    top: 0px;
     left: 500px;
 }
 
 #charta{
     position: absolute;
-    top: 250px;
+    top: 30px;
     left: 980px;
 }
 
 #chart1{
     position: absolute;
-    top: 470px;
+    top: 270px;
     left: 500px;
 }
 
 #chartb{
     position: absolute;
-    top: 520px;
+    top: 300px;
     left: 980px;
 }
 
 .hidden { 
-    display: none; 
+  display: none; 
 }
 div.tooltip {
-    color: #222; 
-    background: #fff; 
-    padding: .5em; 
-    text-shadow: #f5f5f5 0 1px 0;
-    border-radius: 2px; 
-    box-shadow: 0px 0px 2px 0px #a6a6a6; 
-    opacity: 0.9; 
-    position: absolute;
+  color: #222; 
+  background: #fff; 
+  padding: .5em; 
+  text-shadow: #f5f5f5 0 1px 0;
+  border-radius: 2px; 
+  box-shadow: 0px 0px 2px 0px #a6a6a6; 
+  opacity: 0.9; 
+  position: absolute;
 }
+
+
 </style>
+<html>
 <body>
-
-<header>
-  <aside>Updated May 23, 2014</aside>
-  <a href="http://it.linkedin.com/in/giuseppefutia" rel="author">Simone Basso, Giuseppe Futia, Alessio Melandri, Alessandro Quaranta</a>
-</header>
-
-<h1>OpenEnergyMAP</h1>
-<header>
-<h2>Datasets: </h2>
-<ul>
-<li>"<a href="http://www.dati.piemonte.it/catalogodati/dato/100319-numero-di-attestati-di-certificazione-energetica-ace-distinti-per-classe-energetica-e-per-comune.html">Numero di Attestati di Certificazione Energetica (ACE) distinti per classe energetica e per comune</a>" (dati.piemonte.it)</li>
-<li>"<a href="http://www.istat.it/it/archivio/24613">Confini amministrativi, dei sistemi locali del lavoro e delle NUTS2 in versione generalizzata</a>" (ISTAT)</li>
-</ul>
-</header>
-
 
 <div id="map"></div>
 
@@ -72,15 +55,9 @@ div.tooltip {
 
 <div id="chartb"></div>
 
-<footer>
-  <aside>Updated May 23, 2014</aside>
-  <a href="http://bost.ocks.org/mike/" rel="author"> Website style by Mike Bostock</a>
-</footer>
-
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
-
 <script>
 var width = 500,
     height = 500;
@@ -212,7 +189,7 @@ function createMunicipalities (d) {
 
         tooltip
           .classed("hidden", false)
-          .attr("style", "left:"+(mouse[0]+25)+"px;top:"+(mouse[1]+200)+"px")
+          .attr("style", "left:"+(mouse[0]+25)+"px;top:"+mouse[1]+"px")
           .html(resultData["feature"][d.id]["municipalities"][data.id]["name"]);
     })
     .transition()
@@ -224,8 +201,9 @@ function createMunicipalities (d) {
     .style("fill", function (data) {
         var maxValue = 0;
         var maxKey = "";
+        //console.info(resultData["feature"][d.id]["municipalities"]);
         if(resultData["feature"][d.id]["municipalities"][data.id] != undefined) {
-            var mapColor = resultData["feature"][d.id]["municipalities"][data.id]["values"]; 
+           var mapColor = resultData["feature"][d.id]["municipalities"][data.id]["values"]; 
             var sum = 0;
             var sumUnits = 0;   
             for (var key in mapColor) {
@@ -292,9 +270,9 @@ function createHighLevelDonut(d) {
       .attr("class", "legend")
       .attr("width", 400)
       .attr("height", 250)
-      .selectAll("g")
+    .selectAll("g")
       .data(data)
-      .enter().append("g")
+    .enter().append("g")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
   legend.append("rect")
@@ -345,6 +323,25 @@ function createHighLevelDonut(d) {
            .ease("elastic")
               .duration(2700)
            .attr("fill", "#333");                 
+           /*.attr("transform", function(d, i) {                    
+                var c = arc.centroid(d),
+                x = c[0],
+                y = c[1],
+                // pythagorean theorem for hypotenuse
+                h = Math.sqrt(x*x + y*y);
+                if(i%2 == 0) {
+                    return "translate(" + (x/h * 115) +  ',' +
+                                        (y/h * 115) +  ")";   
+                    
+                }
+                 return "translate(" + (x/h * 100) +  ',' +
+                                        (y/h * 100) +  ")";   
+            })
+            .attr("text-anchor", function(d) {
+                return (d.endAngle + d.startAngle)/2 > Math.PI ?
+                "end" : "start";
+            })                       
+            .text(function(d, i) { return data[i].key +": "+ data[i].value; });*/
 
     function tweenPie(b){
         b.innerRadius = 0;
@@ -437,6 +434,29 @@ function createLowLevelDonut(d) {
               .duration(2500)
               .attrTween("d", tweenPie)
 
+        /*arcs.append("text")
+           .attr("font-family", "PT Serif")
+           .attr("font-size", "medium")
+           .transition()
+           .delay(2700)
+           .ease("elastic")
+              .duration(2700)
+           .attr("fill", "#333")                  
+           .attr("transform", function(d) {                    
+                var c = arc.centroid(d),
+                x = c[0],
+                y = c[1],
+                // pythagorean theorem for hypotenuse
+                h = Math.sqrt(x*x + y*y);
+                return "translate(" + (x/h * 115) +  ',' +
+                                      (y/h * 115) +  ")";   
+                })
+            .attr("text-anchor", function(d) {
+                return (d.endAngle + d.startAngle)/2 > Math.PI ?
+                "end" : "start";
+            })                       
+            .text(function(d, i) { return data[i].key +": "+ data[i].value; });*/
+
     function tweenPie(b){
         b.innerRadius = 0;
         var i = d3.interpolate({startAngle:0, endAngle:0}, b);
@@ -512,7 +532,7 @@ function ready(error, provinceData, municipalityData, resultData) {
 
         tooltip
           .classed("hidden", false)
-          .attr("style", "left:"+(mouse[0]+25)+"px;top:"+(mouse[1]+200)+"px")
+          .attr("style", "left:"+(mouse[0]+25)+"px;top:"+mouse[1]+"px")
           .html(mapProvince[d.id])
     })
     .on("mouseout",  function(d,i) {
