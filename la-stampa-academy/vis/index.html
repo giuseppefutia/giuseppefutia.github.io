@@ -65,12 +65,13 @@ div.tooltip {
   <a href="http://it.linkedin.com/in/giuseppefutia" rel="author">Giuseppe Futia</a>
 </header>
 
-<h1>SocialUniversity</h1>
+<h1>La Stampa Academy</h1>
 <header>
-<h2> </h2>
+<h2>Qual è la correlazione tra disoccupazione giovanile, tasso di abbandono degli studi, tasso di sfiducia da parte dei giovani, che comprende coloro che non studiano e non lavorano? </h2>
 </header>
 
-
+<p id="map">
+<p id="barchart">
 <div id="container" class="container">
     <header>
     <h2>Spesa pubblica per consumi finali per l'istruzione e la formazione per regione</h2>
@@ -92,7 +93,7 @@ div.tooltip {
 <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
 
 <!-- To work locally --> 
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<!--<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="http://d3js.org/queue.v1.min.js" charset="utf-8"></script>
 <script defer src="js/plugins.js"></script>
 <script defer src="js/script.js"></script>
@@ -101,11 +102,11 @@ div.tooltip {
 <script src="js/libs/d3.csv.min.js"></script>
 <script src="js/libs/d3.layout.min.js"></script>
 <script src="js/libs/d3.geom.min.js"></script>
-<script src="coffee/vis.js"></script>
+<script src="coffee/vis.js"></script>-->
 
 <!-- To work on github pages -->
 
-<!--<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="http://d3js.org/queue.v1.min.js" charset="utf-8"></script>
 <script defer src="http://giuseppefutia.github.io/la-stampa-academy/vis/js/plugins.js"></script>
 <script defer src="http://giuseppefutia.github.io/la-stampa-academy/vis/js/script.js"></script>
@@ -114,7 +115,7 @@ div.tooltip {
 <script src="http://giuseppefutia.github.io/la-stampa-academy/vis/js/libs/d3.csv.min.js"></script>
 <script src="http://giuseppefutia.github.io/la-stampa-academy/vis/js/libs/d3.layout.min.js"></script>
 <script src="http://giuseppefutia.github.io/la-stampa-academy/vis/js/libs/d3.geom.min.js"></script>
-<script src="http://giuseppefutia.github.io/la-stampa-academy/vis/coffee/vis.js"></script> -->
+<script src="http://giuseppefutia.github.io/la-stampa-academy/vis/coffee/vis.js"></script>
 
 <script>
 
@@ -180,20 +181,20 @@ var regionSvgMap = {
 
 
 // To work on GitHub Pages
-/*queue()
+queue()
     .defer(d3.xml, "http://giuseppefutia.github.io/la-stampa-academy/vis//italia_regioni.svg")
     .defer(d3.json, "http://giuseppefutia.github.io/la-stampa-academy/vis//data/tasso-disoccupazione-regione.json")
     .defer(d3.json, "http://giuseppefutia.github.io/la-stampa-academy/vis//data/tasso-disoccupazione-regione-M-F.json")
     .defer(d3.json, "http://giuseppefutia.github.io/la-stampa-academy/vis//data/abbandono-neet-regione-M-F.json")
-    .await(ready); */
+    .await(ready); 
 
 //To work locally
-queue()
+/*queue()
     .defer(d3.xml, "/italia_regioni.svg")
     .defer(d3.json, "/data/tasso-disoccupazione-regione.json")
     .defer(d3.json, "/data/tasso-disoccupazione-regione-M-F.json")
     .defer(d3.json, "/data/abbandono-neet-regione-M-F.json")
-    //.await(ready);
+    .await(ready);*/
 
 function ready (error, regions, unemplRegions, unemplRegionsMF, abandonNeetRegionsMF) {
     document.getElementById("map").appendChild(regions.documentElement);

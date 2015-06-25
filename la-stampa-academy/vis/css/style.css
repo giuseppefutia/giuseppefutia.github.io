@@ -99,7 +99,7 @@ body > p, li > p {
 }
 
 body > p {
-  width: 960px;
+  width: 720px;
 }
 
 body > blockquote {
@@ -112,7 +112,7 @@ blockquote q {
 }
 
 li {
-  width: 960px;
+  width: 680px;
 }
 
 a {
