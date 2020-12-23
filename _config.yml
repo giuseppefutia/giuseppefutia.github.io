@@ -68,11 +68,15 @@ content:
         quote: >
           Ecco una piccola spiegazione.
         description: | # this will include new lines to allow paragraphs
+          Ho pensato molto a che regalo farti! Mi piaceva l'idea di provare a fare qualcosa con le mie mani, ad esempio un disegno, una scultura, anche soltanto un dolce, ma la mia abilità artigianale ha a che fare solo con l'informatica, quindi ecco qui!! :-). 
+          
           Ho pensato che che questa pagina web potrebbe servire a 2 scopi: da un lato familiarizzare un po' con una tecnologia per fare siti. Dall'altro, e soprattuto, per darti l'occasione di cominciare a costruire un piccolo spazio virtuale, che possa essere un punto di riferimento per te e soprattutto per gli altri. Questo non deve essere per forza un sito in cui scrivi tutto, ma potrebbe essere un recipiente in cui inserisci semplicemente un riferimento a progetti universitari e professionali di cui ti occupi e di cui ti occuperai!
 
           Credo che possa essere davvero uno dei tanti modi per mostrare al mondo quello che sai!
 
           (io comunque, sulla parte più Web, posso sempre darti una mano!)
+
+          ps. proprio come in negozio, il sito si può cambiare! Puoi scegliere qui se c'è qualcos'altro che ti piace: https://jekyllthemes.dev/.
 
   - title: Esperienza # Title for the section
     layout: list # Type of content section (list/text)
