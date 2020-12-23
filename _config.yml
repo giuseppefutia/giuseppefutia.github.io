@@ -1,5 +1,5 @@
 # Site
-repository: sproogen/resume-theme
+#repository: sproogen/resume-theme
 favicon: images/favicon.ico
 
 # Content configuration version
@@ -46,7 +46,7 @@ additional_links:
 
 # About Section
 about_title: Su di me
-about_profile_image: images/debora.jpg
+about_profile_image: images/debora.jpeg
 about_content: | # this will include new lines to allow paragraphs
   Ciao a tutti! Il mio nome è Debora Vittone e... (completa tu)
 
@@ -55,20 +55,24 @@ content:
     layout: list # Type of content section (list/text)
     content:
       - layout: top-middle
-        title: Super awesome project
-        link: github.com/sproogen
+        title: Perché ho voluto creare questo sito
+        link: (qui potrai mettere i link ai tuoi futuri progetti)
         # link_text: Project Website
         additional_links:
-          - title:  sproogen/modern-resume-theme
-            icon: fab fa-github
-            url: github.com/sproogen/modern-resume-theme
+          - title:  (titolo del progetto)
+            icon: fab fa-instagram
+            url: (qui puoi mettere ancora un altro link)
           # - title:  Github page for project (eg. sproogen/modern-resume-theme)
           #   icon: fab fa-github
           #   url: Link to project (eg. sproogen.github.io/modern-resume-theme)
         quote: >
-          This is probably one of the greatest apps ever created, if you don't agree you're probably wrong.
+          Ecco una piccola spiegazione.
         description: | # this will include new lines to allow paragraphs
-          I started this project as a way if learning <mark>React</mark> and it has since grown into a fully fledged app. I have learned many skills through this and been I'm very proud of having this in my portfolio. If you don't have a project as awesome as this I would advise you make one.
+          Ho pensato che che questa pagina web potrebbe servire a 2 scopi: da un lato familiarizzare un po' con una tecnologia per fare siti. Dall'altro, e soprattuto, per darti l'occasione di cominciare a costruire un piccolo spazio virtuale, che possa essere un punto di riferimento per te e soprattutto per gli altri. Questo non deve essere per forza un sito in cui scrivi tutto, ma potrebbe essere un recipiente in cui inserisci semplicemente un riferimento a progetti universitari e professionali di cui ti occupi e di cui ti occuperai!
+
+          Credo che possa essere davvero uno dei tanti modi per mostrare al mondo quello che sai!
+
+          (io comunque, sulla parte più Web, posso sempre darti una mano!)
 
   - title: Esperienza # Title for the section
     layout: list # Type of content section (list/text)
@@ -92,7 +96,7 @@ content:
         caption: 2020 - oggi
         sub_title: Laure Specialistica in Programmazione e gestione dei servizi educativi 
         quote: >
-          Established in 1636, Harvard is the oldest higher education institution in the United States, and is widely regarded in terms of its influence, reputation, and academic pedigree as a leading university in not just the US but also the world.
+          Con circa 120 sedi dislocate su sette poli principali, una ricerca scientifica di alto livello e una didattica all'avanguardia, l'Università di Torino si colloca come una tra le più prestigiose realtà accademiche nel panorama universitario italiano.
         description: | # this will include new lines to allow paragraphs
           Nel mio corso di studi mi occupo di... (continua tu)
 
@@ -100,6 +104,7 @@ content:
     layout: text
     content: | # this will include new lines to allow paragraphs
       Sei una persona curiosa, metodica, scrupolosa e attenta ai dettagli. Sempre alla ricerca di nuove idee e nuovi progetti educativi da esplorare!
+      (Io ho scritto che cosa penso di te, ora scrivi tu che cosa pensi di te!!)
 
 # Footer
 footer_show_references: true
