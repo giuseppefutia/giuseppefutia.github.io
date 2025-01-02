@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GitHub Pages Website</title>
+  <title>Decoding Knowledge Graphs</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
@@ -15,6 +15,12 @@
     body {
       font-family: 'Roboto Slab', serif;
     }
+
+    a.block:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
   </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -29,38 +35,28 @@
   <!-- Features Section -->
   <section class="py-20">
     <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-      <div class="bg-gray-800 p-6 rounded-lg text-center">
-        <h2 class="text-xl font-semibold">
-          <a href="https://medium.com/towards-data-science/knowledge-graph-perspectives-88b69c7b1921" class="text-gray-200 hover:text-primary-color">Graph Databases</a>
-        </h2>
+      <a href="https://medium.com/towards-data-science/knowledge-graph-perspectives-88b69c7b1921" class="bg-gray-800 p-6 rounded-lg text-center block hover:bg-gray-700">
+        <h2 class="text-xl font-semibold text-gray-200 hover:text-primary-color">Graph Databases</h2>
         <p class="mt-4 text-gray-400">Explore RDF, LPG, and Neo4j to efficiently manage and query interconnected data, uncovering complex relationships and insights.</p>
-      </div>
-      <div class="bg-gray-800 p-6 rounded-lg text-center">
-        <h2 class="text-xl font-semibold">
-          <a href="https://medium.com/tag/grl-series" class="text-gray-200 hover:text-primary-color">Graph Machine Learning</a>
-        </h2>
+      </a>
+      <a href="https://medium.com/tag/grl-series" class="bg-gray-800 p-6 rounded-lg text-center block hover:bg-gray-700">
+        <h2 class="text-xl font-semibold text-gray-200 hover:text-primary-color">Graph Machine Learning</h2>
         <p class="mt-4 text-gray-400">Unlock insights with Graph Neural Networks, enabling advanced predictions and recommendations from graph-structured data.</p>
-      </div>
-      <div class="bg-gray-800 p-6 rounded-lg text-center">
-        <h2 class="text-xl font-semibold">
-          <a href="https://medium.com/towards-data-science/ontology-reasoning-in-knowledge-graphs-7e563cc5b62a" class="text-gray-200 hover:text-primary-color">Ontology Design and Reasoning</a>
-        </h2>
+      </a>
+      <a href="https://medium.com/towards-data-science/ontology-reasoning-in-knowledge-graphs-7e563cc5b62a" class="bg-gray-800 p-6 rounded-lg text-center block hover:bg-gray-700">
+        <h2 class="text-xl font-semibold text-gray-200 hover:text-primary-color">Ontology Design and Reasoning</h2>
         <p class="mt-4 text-gray-400">Utilize RDF-Schema and OWL to structure data and enable reasoning for automated knowledge discovery.</p>
-      </div>
+      </a>
     </div>
     <div class="max-w-4xl mx-auto grid grid-cols-2 gap-8 justify-center mt-8">
-      <div class="bg-gray-800 p-6 rounded-lg text-center">
-        <h2 class="text-xl font-semibold">
-          <a href="#graphrag" class="text-gray-200 hover:text-primary-color">GraphRAG</a>
-        </h2>
+      <a href="#graphrag" class="bg-gray-800 p-6 rounded-lg text-center block hover:bg-gray-700">
+        <h2 class="text-xl font-semibold text-gray-200 hover:text-primary-color">GraphRAG</h2>
         <p class="mt-4 text-gray-400">Integrate graph-based structures with neural-symbolic models for adaptive decision-making.</p>
-      </div>
-      <div class="bg-gray-800 p-6 rounded-lg text-center">
-        <h2 class="text-xl font-semibold">
-          <a href="https://medium.com/@giuseppefutia/building-kgs-with-llms-the-use-case-of-the-rockefeller-archive-center-0dfc39d2a893" class="text-gray-200 hover:text-primary-color">Knowledge Graphs and LLMs</a>
-        </h2>
+      </a>
+      <a href="https://medium.com/@giuseppefutia/building-kgs-with-llms-the-use-case-of-the-rockefeller-archive-center-0dfc39d2a893" class="bg-gray-800 p-6 rounded-lg text-center block hover:bg-gray-700">
+        <h2 class="text-xl font-semibold text-gray-200 hover:text-primary-color">Knowledge Graphs and LLMs</h2>
         <p class="mt-4 text-gray-400">Automate the building of interconnected knowledge using large language models.</p>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -69,14 +65,14 @@
     <div class="max-w-6xl mx-auto text-center">
       <h2 class="text-3xl font-bold">Pick the right activity for your business</h2>
       <div class="mt-8 grid md:grid-cols-2 gap-8">
-        <div class="bg-gray-700 p-6 rounded-lg">
-          <h3 class="text-xl font-semibold">Consultancy</h3>
+        <a href="#consultancy" class="bg-gray-700 p-6 rounded-lg block hover:bg-gray-600">
+          <h3 class="text-xl font-semibold text-gray-200">Consultancy</h3>
           <p class="mt-4 text-gray-400">Expert guidance to harness the power of Knowledge Graphs, LLMs, and Graph Machine Learning for your organization's innovation.</p>
-        </div>
-        <div class="bg-gray-700 p-6 rounded-lg">
-          <h3 class="text-xl font-semibold">Training</h3>
+        </a>
+        <a href="#training" class="bg-gray-700 p-6 rounded-lg block hover:bg-gray-600">
+          <h3 class="text-xl font-semibold text-gray-200">Training</h3>
           <p class="mt-4 text-gray-400">Hands-on learning to master Graph Data Modeling, LLM Integration, and Advanced Graph Analytics for impactful solutions.</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>
