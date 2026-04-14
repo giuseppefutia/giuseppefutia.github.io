@@ -1020,6 +1020,42 @@
     .bio-gallery-img { height: 120px; }
   }
 
+
+  /* ── HERO OUTCOMES ── */
+  .hero-outcomes {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .hero-outcomes-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+  .hero-outcomes-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .hero-outcomes-list li {
+    font-size: 0.88rem;
+    color: var(--base-700);
+    line-height: 1.5;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .hero-outcomes-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary-600);
+    font-size: 0.75rem;
+    top: 0.15em;
+  }
+
   /* ── TRUSTED BY ── */
   .trusted {
     background: var(--color-surface);
@@ -1368,6 +1404,16 @@
     <p class="hero-subtitle" style="opacity:0;animation:fadeUp 0.8s 0.35s forwards;">
       Ground your LLMs with structured knowledge — and leave with a full pipeline, from data ingestion to agentic retrieval, that you know how to keep production-ready.
     </p>
+    <div class="hero-outcomes" style="opacity:0;animation:fadeUp 0.8s 0.45s forwards;">
+      <p class="hero-outcomes-label">By the end of the course you will be able to:</p>
+      <ul class="hero-outcomes-list">
+        <li>Build knowledge graph pipelines from structured and unstructured data using open-source LLMs</li>
+        <li>Design and query graphs in both Labeled Property Graph (LPG) and Resource Description Framework (RDF)</li>
+        <li>Implement GraphRAG and agentic retrieval systems</li>
+        <li>Apply Graph Neural Networks (GNNs) to real use cases like fraud detection and recommendations</li>
+        <li>Deploy and monitor KG systems in production</li>
+      </ul>
+    </div>
     <div class="hero-divider"></div>
 
     <div class="hero-meta">
@@ -1402,7 +1448,7 @@
       </div>
       <div style="display:flex;align-items:flex-start;gap:1rem;">
         <span style="color:var(--primary-400);font-size:0.9rem;flex-shrink:0;margin-top:0.15rem;">03</span>
-        <span style="font-size:0.88rem;color:rgba(247,249,255,0.6);line-height:1.5;">If it's a fit, you'll get access to early bird pricing on the spot.</span>
+        <span style="font-size:0.88rem;color:rgba(247,249,255,0.6);line-height:1.5;">If it's a fit, you'll get access to early bird pricing on the spot — available for the first 10 participants only.</span>
       </div>
     </div>
 
@@ -1442,11 +1488,11 @@
         <div class="week-number">02</div>
         <div class="week-content">
           <div class="week-title">Modeling the World — Schemas, Ontologies & Validation</div>
-          <p class="week-desc">The decisions you make here will haunt you — or reward you — for the rest of the project. LPG vs RDF, when to reach for OWL, how to write validation rules with SHACL. Get these foundations right and everything else becomes easier.</p>
+          <p class="week-desc">The decisions you make here will haunt you — or reward you — for the rest of the project. Labeled Property Graph (LPG) vs Resource Description Framework (RDF), when to reach for Web Ontology Language (OWL), how to write validation rules with SHACL (Shapes Constraint Language). Get these foundations right and everything else becomes easier.</p>
           <div class="week-tags">
             <span class="tag">LPG vs RDF</span>
-            <span class="tag">OWL Ontologies</span>
-            <span class="tag">SHACL</span>
+            <span class="tag">OWL (Web Ontology Language)</span>
+            <span class="tag">SHACL (Shapes Constraint Language)</span>
           </div>
         </div>
       </div>
@@ -1457,8 +1503,7 @@
           <div class="week-title">Where Data Lives — Databases, Queries & Graph Algorithms</div>
           <p class="week-desc">We run the same real-world dataset through two different paradigms — same questions, different approaches. You'll see exactly how LPG and RDF tackle the same problem, where each shines and where it struggles. Then we explore what your graph can already tell you on its own: centrality, community detection, pathfinding — fast, interpretable, and underrated.</p>
           <div class="week-tags">
-            <span class="tag">Neo4j & Cypher</span>
-            <span class="tag">GraphDB & SPARQL</span>
+            <span class="tag">LPG & RDF</span>
             <span class="tag">Embedded Databases</span>
             <span class="tag">Multi-Engine Benchmarks</span>
           </div>
@@ -1511,7 +1556,7 @@
         <div class="week-number">07</div>
         <div class="week-content">
           <div class="week-title">Graph Representation Learning — How Machines Learn from Connections</div>
-          <p class="week-desc">This is where graph embeddings get the depth they deserve. We move from theory to practice using PyTorch Geometric — building models that learn from graph structure, not just node features — applied to real use cases like recommendation systems and fraud detection. You'll leave knowing not just how GNNs work, but when to reach for them and when not to.</p>
+          <p class="week-desc">This is where graph embeddings get the depth they deserve. We move from theory to practice using PyTorch Geometric — building models that learn from graph structure, not just node features — applied to real use cases like recommendation systems and fraud detection. You'll leave knowing not just how Graph Neural Networks (GNNs) work, but when to reach for them and when not to.</p>
           <div class="week-tags">
             <span class="tag">Graph Embeddings</span>
             <span class="tag">GNN</span>
@@ -1545,7 +1590,6 @@
             <span class="tag">Organisational Change</span>
             <span class="tag">KG Strategy</span>
             <span class="tag">Stakeholder Buy-in</span>
-            <span class="tag">Final Projects</span>
             <span class="tag">Long-term Governance</span>
           </div>
         </div>
@@ -1834,7 +1878,7 @@
         <div class="price-tier">Standard</div>
         <div class="price-amount">$799</div>
         <div class="price-original">$1,199 full price</div>
-        <p class="price-desc">Early bird price for the first 10 participants. Full price ($1,199) applies after. Projects are individual — work solo or pair up with another participant via Discord.</p>
+        <p class="price-desc">Available to the first 10 participants. Projects are individual — work solo or pair up with another participant via Discord.</p>
         <ul class="price-features">
           <li>9 weeks of live sessions (weekly)</li>
           <li>All course materials & labs</li>
@@ -1852,10 +1896,10 @@
         <div class="price-original">$2,199 full price</div>
         <p class="price-desc">Everything in the standard tier, plus two 1:1 sessions with Giuseppe to review your project and architecture.</p>
         <ul class="price-features">
-          <li>Everything in Early Bird</li>
-          <li>2 × 45-min 1:1 sessions with Giuseppe (booked via Calendly)</li>
-          <li>Session 1 — Week 4: mid-course architecture review</li>
-          <li>Session 2 — Week 9: final project review & feedback</li>
+          <li>Everything in Standard</li>
+          <li>2 × 45-min 1:1 sessions with Giuseppe</li>
+          <li>Session 1 — Week 4: review your architecture at the midpoint</li>
+          <li>Session 2 — Week 9: review your project before the final presentation</li>
           <li>Dedicated Discord channel for mentorship participants</li>
         </ul>
         <a href="https://calendly.com/giuseppefutia" target="_blank" class="price-btn price-btn-primary">Book a Call →</a>
