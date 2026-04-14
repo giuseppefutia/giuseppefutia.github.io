@@ -1056,6 +1056,64 @@
     top: 0.15em;
   }
 
+
+
+  /* ── OUTCOMES ── */
+  .outcomes {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding: 6rem 4rem;
+  }
+  .outcomes-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  .outcomes-header .section-title {
+    color: var(--base-900);
+  }
+  .outcomes-header .section-title em {
+    color: var(--primary-600);
+  }
+  .outcomes-header .section-tag {
+    color: var(--primary-600);
+  }
+  .outcomes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .outcome-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .outcome-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .outcome-arrow {
+    color: var(--primary-600);
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.2em;
+  }
+  .outcome-text {
+    font-size: 1rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+  @media (max-width: 900px) {
+    .outcomes-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .outcomes { padding: 4rem 1.5rem; }
+  }
+
   /* ── TRUSTED BY ── */
   .trusted {
     background: var(--color-surface);
@@ -1404,14 +1462,7 @@
     <p class="hero-subtitle" style="opacity:0;animation:fadeUp 0.8s 0.35s forwards;">
       Ground your LLMs with structured knowledge — and leave with a full pipeline, from data ingestion to agentic retrieval, that you know how to keep production-ready.
     </p>
-    <div class="hero-outcomes" style="opacity:0;animation:fadeUp 0.8s 0.45s forwards;">
-      <p class="hero-outcomes-label">By the end of the course you will be able to:</p>
-      <ul class="hero-outcomes-list">
-        <li>Build knowledge graph pipelines from structured and unstructured data using open-source LLMs</li>
-        <li>Design and query graphs in both Labeled Property Graph (LPG) and Resource Description Framework (RDF)</li>
-        <li>From GraphRAG and agentic retrieval to Graph Neural Networks (GNNs) — and keep it all production-ready</li>
-      </ul>
-    </div>
+
     <div class="hero-divider"></div>
 
     <div class="hero-meta">
@@ -1591,6 +1642,38 @@
             <span class="tag">Long-term Governance</span>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="outcomes">
+  <div class="outcomes-inner">
+    <div class="outcomes-header reveal">
+      <div class="section-tag">What you'll build</div>
+      <h2 class="section-title">By the end<br>of the course.</h2>
+    </div>
+    <div class="outcomes-list reveal">
+      <div class="outcome-item">
+        <span class="outcome-arrow">→</span>
+        <p class="outcome-text">Build knowledge graph pipelines from structured and unstructured data using open-source LLMs</p>
+      </div>
+      <div class="outcome-item">
+        <span class="outcome-arrow">→</span>
+        <p class="outcome-text">Design and query graphs in both Labeled Property Graph (LPG) and Resource Description Framework (RDF)</p>
+      </div>
+      <div class="outcome-item">
+        <span class="outcome-arrow">→</span>
+        <p class="outcome-text">Implement GraphRAG pipelines and agentic retrieval systems grounded in graph structure</p>
+      </div>
+      <div class="outcome-item">
+        <span class="outcome-arrow">→</span>
+        <p class="outcome-text">Apply Graph Neural Networks (GNNs) to real use cases like fraud detection and recommendations</p>
+      </div>
+      <div class="outcome-item">
+        <span class="outcome-arrow">→</span>
+        <p class="outcome-text">Deploy, monitor, and maintain knowledge graph systems in production environments</p>
       </div>
     </div>
   </div>
